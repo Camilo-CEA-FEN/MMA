@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMA Project - Protocolo de Evaluación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        .card { background-color: #1e293b; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); border: 1px solid #334155; }
+        .accent-border { border-left: 4px solid #f59e0b; }
+        .gradient-text { background: linear-gradient(90deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- 
+    Palette: Brilliant Blues & Vibrant Gold
+    HEX: #0f172a (Deep Blue), #1e293b (Card Blue), #f59e0b (Vibrant Gold), #38bdf8 (Sky Blue)
+    -->
+
+    <header class="max-w-6xl mx-auto mb-12 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Proyecto MMA</h1>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+            Asistente de Reflexión para el Primer Grado: Un entorno experimental de diálogo basado en el andamiaje socrático y la duda metódica.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Intro Section -->
+        <section class="card p-8 md:col-span-2 accent-border">
+            <h2 class="text-2xl font-bold mb-4 text-amber-500">¿Qué es el Andamiaje Reflexivo?</h2>
+            <p class="mb-6 text-slate-300 leading-relaxed">
+                A diferencia de una IA convencional que ofrece respuestas directas, MMA utiliza la <strong>Mayéutica Activa</strong>. El sistema está diseñado para no "dar la lección", sino para estructurar el camino del descubrimiento personal. Buscamos que el aprendiz no reciba un dogma, sino que construya su propio conocimiento a través de la observación y el autoanálisis.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div class="p-4 bg-slate-800 rounded-lg">
+                    <span class="block text-3xl font-bold text-sky-400 mb-1">Duda</span>
+                    <span class="text-sm text-slate-400">El motor inicial</span>
+                </div>
+                <div class="p-4 bg-slate-800 rounded-lg">
+                    <span class="block text-3xl font-bold text-sky-400 mb-1">Analogía</span>
+                    <span class="text-sm text-slate-400">El puente simbólico</span>
+                </div>
+                <div class="p-4 bg-slate-800 rounded-lg">
+                    <span class="block text-3xl font-bold text-sky-400 mb-1">Verdad</span>
+                    <span class="text-sm text-slate-400">La construcción personal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Pillars Visualization -->
+        <section class="card p-6">
+            <h2 class="text-xl font-bold mb-4 text-sky-400">Dimensiones del Stress-Testing</h2>
+            <p class="text-sm text-slate-400 mb-6">
+                Para validar el sistema, debemos atacar tres frentes críticos donde la IA suele fallar bajo presión.
+            </p>
+            <div class="chart-container">
+                <canvas id="riskRadarChart"></canvas>
+            </div>
+            <div class="mt-4 space-y-2 text-sm">
+                <p><strong class="text-amber-500">Desviación:</strong> La IA se vuelve "perezosa" y responde directamente.</p>
+                <p><strong class="text-amber-500">Fuga:</strong> Cruce de límites hacia grados superiores.</p>
+                <p><strong class="text-amber-500">Alucinación:</strong> Invención de teorías no masónicas.</p>
+            </div>
+        </section>
+
+        <!-- Testing Strategy Section -->
+        <section class="card p-6">
+            <h2 class="text-xl font-bold mb-4 text-sky-400">Protocolo Táctico de Prueba</h2>
+            <p class="text-sm text-slate-400 mb-6">
+                Estrategias de "ataque" recomendadas para los evaluadores expertos.
+            </p>
+            <div class="chart-container">
+                <canvas id="strategyBarChart"></canvas>
+            </div>
+            <p class="mt-4 text-xs italic text-slate-500 text-center">
+                Medición proyectada de efectividad por tipo de prompt de estrés.
+            </p>
+        </section>
+
+        <!-- Socratic Loop Diagram (No SVG/Mermaid) -->
+        <section class="card p-8 md:col-span-2">
+            <h2 class="text-2xl font-bold mb-8 text-amber-500 text-center">El Ciclo de Interacción Socrática</h2>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-4">
+                
+                <div class="flex-1 text-center p-6 bg-slate-800 rounded-xl border border-sky-900/50 w-full">
+                    <div class="text-4xl mb-2">❓</div>
+                    <h3 class="font-bold text-sky-300">Pregunta Directa</h3>
+                    <p class="text-xs text-slate-400 mt-2">El usuario pide el significado de un símbolo.</p>
+                </div>
+
+                <div class="hidden md:block text-2xl text-amber-500">➜</div>
+
+                <div class="flex-1 text-center p-6 bg-amber-900/20 rounded-xl border border-amber-600/30 w-full">
+                    <div class="text-4xl mb-2">⚖️</div>
+                    <h3 class="font-bold text-amber-500">Filtro de Grado</h3>
+                    <p class="text-xs text-slate-400 mt-2">MMA verifica límites y contexto pedagógico.</p>
+                </div>
+
+                <div class="hidden md:block text-2xl text-amber-500">➜</div>
+
+                <div class="flex-1 text-center p-6 bg-slate-800 rounded-xl border border-sky-900/50 w-full">
+                    <div class="text-4xl mb-2">💡</div>
+                    <h3 class="font-bold text-sky-300">Repregunta Guía</h3>
+                    <p class="text-xs text-slate-400 mt-2">Devuelve una orientación hacia la naturaleza o el ser.</p>
+                </div>
+
+            </div>
+            <p class="text-center mt-8 text-sm text-slate-400">
+                Este flujo asegura que el aprendizaje sea un proceso **activo** y no **pasivo**.
+            </p>
+        </section>
+
+        <!-- Quality Metrics -->
+        <section class="card p-6 md:col-span-2">
+            <h2 class="text-xl font-bold mb-4 text-sky-400">Rúbrica de Éxito del Evaluador</h2>
+            <p class="text-sm text-slate-400 mb-6 text-center">
+                ¿Qué estamos midiendo realmente en esta fase de pruebas?
+            </p>
+            <div id="qualityPolarChart" class="w-full h-[400px]"></div>
+        </section>
+
+        <!-- Final Feedback Call to Action with Configured Links -->
+        <section class="md:col-span-2 text-center py-12">
+            <h2 class="text-3xl font-bold mb-6">Tu Retroalimentación es la Clave</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">
+                No buscamos una IA perfecta, sino una IA alineada con nuestra tradición docente. Al estresar el sistema, nos ayudas a construir un andamiaje seguro para los futuros hermanos.
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-4">
+                <a href="https://drive.google.com/file/d/1dOKbXvi19nrx509ltDYcfVuHJ1SAklMN/view?usp=sharing" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="px-6 py-3 border border-slate-600 hover:bg-slate-800 hover:border-slate-500 transition-colors rounded-full font-bold text-slate-200">
+                    Protocolo de Prueba MMA
+                </a>
+                
+                <a href="https://forms.gle/2TqjJBwHFSDZ5hLe7" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="px-6 py-3 border border-slate-600 hover:bg-slate-800 hover:border-slate-500 transition-colors rounded-full font-bold text-slate-200">
+                    Cuestionario de activación
+                </a>
+
+                <a href="https://gemini.google.com/gem/1KZMmpNrASvNQlPqHgyHrOYZ4X6jDsJul?usp=sharing" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-slate-950 transition-colors rounded-full font-bold shadow-lg shadow-amber-600/10">
+                    Iniciar prueba de stress
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="max-w-6xl mx-auto border-t border-slate-800 mt-12 py-8 text-center text-slate-500 text-sm">
+        <p>Proyecto MMA - Desarrollo Experimental para la Instrucción de Primer Grado</p>
+        <p class="mt-2">Propiedad del Taller - Uso Exclusivamente Interno</p>
+    </footer>
+
+    <script>
+        // Common Tooltip Config for Chart.js
+        const commonTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                      return label.join(' ');
+                    } else {
+                      return label;
+                    }
+                }
+            }
+        };
+
+        // 1. Radar Chart for Risk Dimensions
+        const ctxRadar = document.getElementById('riskRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [['Desviación', 'Pedagógica'], ['Fuga de', 'Información'], ['Límites de', 'Grado'], ['Rigor de', 'Ortodoxia'], ['Alucinación', 'Conceptualmente']],
+                datasets: [{
+                    label: 'Resistencia Actual',
+                    data: [85, 90, 75, 80, 70],
+                    fill: true,
+                    backgroundColor: 'rgba(56, 189, 248, 0.2)',
+                    borderColor: '#38bdf8',
+                    pointBackgroundColor: '#38bdf8',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#38bdf8'
+                }, {
+                    label: 'Objetivo de Pruebas',
+                    data: [100, 100, 100, 100, 100],
+                    fill: false,
+                    borderColor: '#f59e0b',
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#334155' },
+                        grid: { color: '#334155' },
+                        pointLabels: { color: '#94a3b8', font: { size: 10 } },
+                        ticks: { display: false, stepSize: 20 },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f8fafc', font: { size: 11 } } },
+                    tooltip: commonTooltipConfig
+                }
+            }
+        });
+
+        // 2. Bar Chart for Testing Strategies
+        const ctxBar = document.getElementById('strategyBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: [['Rigidez', 'Socrática'], ['Infiltración', 'de Sistema'], ['Coherencia', 'Tradicional'], ['Empatía', 'Pedagógica']],
+                datasets: [{
+                    label: 'Dificultad de Stress',
+                    data: [65, 95, 80, 50],
+                    backgroundColor: '#f59e0b',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8' }, max: 100 },
+                    y: { grid: { display: false }, ticks: { color: '#94a3b8' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltipConfig
+                }
+            }
+        });
+
+        // 3. Plotly Polar Chart for Evaluation Rubric
+        const plotData = [{
+            type: 'scatterpolar',
+            r: [9, 8, 7, 9, 8, 9],
+            theta: ['Fraternidad','Andamiaje','Ortodoxia','Rigor','Empatía','Claridad'],
+            fill: 'toself',
+            fillcolor: 'rgba(245, 158, 11, 0.3)',
+            line: { color: '#f59e0b', width: 3 },
+            marker: { color: '#f59e0b', size: 8 }
+        }];
+
+        const plotLayout = {
+            polar: {
+                radialaxis: { visible: true, range: [0, 10], color: '#475569', gridcolor: '#334155' },
+                angularaxis: { color: '#94a3b8', gridcolor: '#334155' },
+                bgcolor: 'rgba(0,0,0,0)'
+            },
+            showlegend: false,
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            margin: { t: 40, b: 40, l: 40, r: 40 },
+            font: { color: '#f8fafc', size: 12 }
+        };
+
+        const plotConfig = { responsive: true, displayModeBar: false };
+        
+        Plotly.newPlot('qualityPolarChart', plotData, plotLayout, plotConfig);
+
+    </script>
+</body>
+</html>
